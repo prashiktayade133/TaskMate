@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskMate is a simple interactive to-do list built with HTML, CSS and JavaScript.">
+  <title>TaskMate | Smart To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="TaskMate home"><span class="brand-mark">✓</span> TaskMate</a>
+      <span class="topbar-note">Make today count.</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL PRODUCTIVITY SPACE</p>
+          <h1>Get things <span>done.</span></h1>
+          <p class="hero-copy">A little progress every day adds up to big results.</p>
+        </div>
+        <div class="date-chip" id="todayDate">TODAY</div>
+      </section>
+
+      <section class="stats" aria-label="Task statistics">
+        <article class="stat-card"><span class="stat-icon purple">▤</span><div><p>Total tasks</p><strong id="totalCount">0</strong></div></article>
+        <article class="stat-card"><span class="stat-icon green">✓</span><div><p>Completed</p><strong id="completedCount">0</strong></div></article>
+        <article class="stat-card"><span class="stat-icon orange">◷</span><div><p>Remaining</p><strong id="remainingCount">0</strong></div></article>
+      </section>
+
+      <section class="workspace">
+        <div class="panel add-panel">
+          <div class="section-heading"><div><p class="eyebrow">PLAN YOUR DAY</p><h2>Add a task</h2></div><span class="heading-dot">✦</span></div>
+          <form id="taskForm">
+            <label for="taskInput">Task name</label>
+            <input id="taskInput" type="text" maxlength="100" placeholder="e.g. Finish JavaScript assignment" required>
+            <div class="form-row">
+              <div class="field"><label for="categoryInput">Category</label>
+                <select id="categoryInput"><option>Study</option><option>Work</option><option>Personal</option><option>Health</option><option>Other</option></select>
+              </div>
+              <div class="field"><label for="priorityInput">Priority</label>
+                <select id="priorityInput"><option value="Medium">Medium</option><option value="High">High</option><option value="Low">Low</option></select>
+              </div>
+            </div>
+            <button class="primary-btn" type="submit">＋ Add task</button>
+            <p class="form-hint" id="formMessage" aria-live="polite">Tip: keep each task clear and actionable.</p>
+          </form>
+        </div>
+
+        <div class="panel list-panel">
+          <div class="list-title-row"><div><p class="eyebrow">YOUR CHECKLIST</p><h2>My tasks <span class="count-pill" id="listCount">0</span></h2></div></div>
+          <div class="toolbar">
+            <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search tasks..." aria-label="Search tasks"></div>
+            <select id="filterSelect" aria-label="Filter tasks"><option value="All">All tasks</option><option value="Active">Active</option><option value="Completed">Completed</option></select>
+          </div>
+          <div class="category-filters" id="categoryFilters">
+            <button class="filter-chip active" data-category="All" type="button">All</button>
+            <button class="filter-chip" data-category="Study" type="button">Study</button>
+            <button class="filter-chip" data-category="Work" type="button">Work</button>
+            <button class="filter-chip" data-category="Personal" type="button">Personal</button>
+            <button class="filter-chip" data-category="Health" type="button">Health</button>
+            <button class="filter-chip" data-category="Other" type="button">Other</button>
+          </div>
+          <ul id="taskList" class="task-list" aria-live="polite"></ul>
+          <div class="empty-state" id="emptyState"><div class="empty-icon">✦</div><h3>Nothing on your list yet</h3><p>Add your first task and start building momentum.</p></div>
+          <div class="list-footer"><span id="footerSummary">You’re all caught up.</span><button id="clearCompletedBtn" class="text-btn" type="button">Clear completed</button></div>
+        </div>
+      </section>
+      <footer>Built with HTML, CSS & JavaScript <span>•</span> Small steps, big wins.</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
